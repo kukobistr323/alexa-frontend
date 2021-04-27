@@ -1,7 +1,9 @@
-<div class="container" style="max-width: 500px">
-  <button mat-flat-button color="primary" (click)="googleSignIn()">
-    Sign in with Google
-  </button>
+<div class="container">
+  <div class="element">
+    <button mat-flat-button color="primary" (click)="googleSignIn()">
+      Sign in with Google
+    </button>
+  </div>
 
   <div *ngIf="isSignedIn === true" class="mt-4">
     <div class="form-group">
@@ -21,5 +23,4 @@
       <input type="text" [value]="getAccessToken()" class="form-control" id="token" readonly>
     </div>
   </div>
-
 </div>

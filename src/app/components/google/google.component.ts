@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SocialAuthService, GoogleLoginProvider, SocialUser} from 'angularx-social-login';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-google',
@@ -10,12 +11,11 @@ import {SocialAuthService, GoogleLoginProvider, SocialUser} from 'angularx-socia
 })
 
 export class GoogleComponent implements OnInit {
-
   reactiveForm: FormGroup | undefined;
   user: SocialUser | undefined;
   isSignedIn: boolean | undefined;
 
-  constructor(private fb: FormBuilder, private socialAuthService: SocialAuthService) {
+  constructor(private router: Router, private fb: FormBuilder, private socialAuthService: SocialAuthService) {
   }
 
   ngOnInit(): void {
@@ -33,7 +33,8 @@ export class GoogleComponent implements OnInit {
 
   googleSignIn(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
-      .then((user: SocialUser) => localStorage.setItem('token', user.response.access_token));
+      .then((user: SocialUser) => localStorage.setItem('token', user.response.access_token))
+      .then(() => this.router.navigate(['/dashboard']));
   }
 
   getAccessToken(): string | null {

@@ -10,13 +10,16 @@ import {SocialLoginModule, SocialAuthServiceConfig} from 'angularx-social-login'
 import {GoogleLoginProvider} from 'angularx-social-login';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatButtonModule} from '@angular/material/button';
 import {environment} from '../environments/environment';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GoogleComponent
+    GoogleComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import {environment} from '../environments/environment';
     ReactiveFormsModule,
     SocialLoginModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
     {
