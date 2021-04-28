@@ -1,1 +1,196 @@
+.not-login-popup {
+  margin: 15px;
+  position: absolute;
+  top: calc(50% - 310px);
+  left: calc(50% - 265px);
+  background-color: #fff;
+  width: calc(100% - 30px);
+  height: 590px;
+  max-width: 500px;
+  min-width: 290px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgb(32 75 146 / 10%);
+}
 
+.not-login-popup .not-login-header_cloud1 {
+  height: 80px;
+  width: 132px;
+  left: 30%;
+  top: 4%;
+  position: absolute;
+  background-size: cover;
+  animation: transform1 12s infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  z-index: 2;
+}
+
+@keyframes transform1 {
+  0% {
+    transform: translateX(0);
+  }
+  37% {
+    transform: translateX(70px);
+  }
+  100% {
+    transform: translateX(-50px);
+  }
+}
+
+.not-login-popup .not-login-header_cloud2 {
+  height: 90px;
+  width: 162px;
+  left: -5%;
+  top: 9%;
+  position: absolute;
+  background-size: cover;
+  animation: transform2 7s infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  z-index: 2;
+}
+
+@keyframes transform2 {
+  0% {
+    transform: translateX(60px);
+  }
+  100% {
+    transform: translateX(-50px);
+  }
+}
+
+.not-login-popup .not-login-header_cloud3 {
+  height: 100px;
+  width: 182px;
+  left: 80%;
+  top: 16%;
+  position: absolute;
+  background-size: cover;
+  animation: transform3 9s infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  z-index: 2;
+}
+
+@keyframes transform3 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-180px);
+  }
+}
+
+.not-login-popup_wrapper {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.not-login-popup .not-login-header {
+  position: relative;
+  height: 48%;
+  max-height: 283px;
+  width: 100%;
+  color: #fff;
+}
+
+.not-login-popup .not-login-header_name {
+  position: absolute;
+  left: 23px;
+  bottom: 37px;
+  width: 118px;
+  height: 61px;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.not-login-popup .not-login-body {
+  text-align: center;
+}
+
+.not-login-popup .not-login-body_head {
+  margin: 40px 0 20px;
+  line-height: 30px;
+  font-size: 24px;
+  color: #333d47;
+}
+
+.button-icon {
+  width: 15px;
+  height: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  background-color: white;
+  padding: 9px;
+  border-radius: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap');
+
+.not-login-popup .not-login-body_head h3 {
+  margin: 0 0 5px;
+  font-size: 24px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+.not-login-popup .not-login-body_body {
+  line-height: 20px;
+  font-size: 15px;
+  color: #afb7bf;
+}
+
+.not-login-popup .not-login-body_body p {
+  margin: 0;
+}
+
+.not-login-popup .not-login-footer {
+  position: absolute;
+  text-align: center;
+  bottom: 53px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.not-login-popup .not-login-footer .btn {
+  margin: 0;
+  text-transform: none;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.blue-button {
+  transition: all .2s;
+  background: #5495ff;
+  color: #fff;
+  text-transform: uppercase;
+  border: 1px solid #4c88e8;
+  border-radius: 3px;
+}
+
+.not-login-popup .not-login-footer_google {
+  height: 32px;
+  width: 32px;
+  background-size: 50%;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.not-login-popup .not-login-footer_googleText {
+  line-height: 30px;
+  font-size: 14px;
+  margin: 0 9px;
+  display: inline-block;
+}

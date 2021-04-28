@@ -33,7 +33,7 @@ export class GoogleComponent implements OnInit {
 
   googleSignIn(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
-      .then((user: SocialUser) => localStorage.setItem('token', user.response.access_token))
+      .then((user: SocialUser) => localStorage.setItem('googleToken', user.response.access_token))
       .then(() => this.router.navigate(['/dashboard']));
   }
 

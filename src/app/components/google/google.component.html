@@ -1,26 +1,31 @@
-<div class="container">
-  <div class="element">
-    <button mat-flat-button color="primary" (click)="googleSignIn()">
-      Sign in with Google
-    </button>
-  </div>
-
-  <div *ngIf="isSignedIn === true" class="mt-4">
-    <div class="form-group">
-      <label>First Name</label>
-      <input type="text" [value]="user?.firstName" class="form-control" id="firstname" readonly>
-    </div>
-    <div class="form-group">
-      <label>Last Name</label>
-      <input type="text" [value]="user?.lastName" class="form-control" id="lastname" readonly>
-    </div>
-    <div class="form-group">
-      <label>Email</label>
-      <input type="text" [value]="user?.email" class="form-control" id="email" readonly>
-    </div>
-    <button type="button" (click)="logout()" class="btn btn-primary">Log Out</button>
-    <div class="form-group">
-      <input type="text" [value]="getAccessToken()" class="form-control" id="token" readonly>
+<div class="container-fluid not-login">
+  <div class="not-login-popup">
+    <div class="not-login-header_cloud1" style="background-image: url('assets/pictures/cloud.png')"></div>
+    <div class="not-login-header_cloud2" style="background-image: url('assets/pictures/cloud.png')"></div>
+    <div class="not-login-header_cloud3" style="background-image: url('assets/pictures/cloud.png')"></div>
+    <div class="not-login-popup_wrapper">
+      <div class="not-login-header">
+        <img src="assets/pictures/forest.png">
+        <p class="not-login-header_name">Admin Dashboard</p>
+      </div>
+      <div class="not-login-body">
+        <div class="not-login-body_head">
+          <h3>Welcome!</h3>
+          <h3>Just one simple step to left</h3>
+        </div>
+        <div class="not-login-body_body">
+          <p>Please sign in with Google</p>
+          <p>account to access the system</p>
+        </div>
+      </div>
+      <div class="not-login-footer">
+        <button mat-button class="btn btn-primary blue-button" (click)="googleSignIn()">
+          <img src="assets/pictures/google-icon.svg" class="not-login-footer_google">
+          <div class="not-login-footer_googleText">
+            Sign in with Google
+          </div>
+        </button>
+      </div>
     </div>
   </div>
 </div>
