@@ -6,8 +6,7 @@ import {AppComponent} from './app.component';
 import {GoogleComponent} from './components/google/google.component';
 
 import {ReactiveFormsModule} from '@angular/forms';
-import {SocialLoginModule, SocialAuthServiceConfig} from 'angularx-social-login';
-import {GoogleLoginProvider} from 'angularx-social-login';
+import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {environment} from '../environments/environment';
@@ -16,15 +15,21 @@ import {MatButtonModule} from '@angular/material/button';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {ZoomComponent} from './components/zoom/zoom.component';
+import {HttpClientModule} from '@angular/common/http';
+import {AuthorizeComponent} from './components/authorize/authorize.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GoogleComponent,
-    DashboardComponent
+    DashboardComponent,
+    ZoomComponent,
+    AuthorizeComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     SocialLoginModule,
@@ -43,9 +48,12 @@ import {MatInputModule} from '@angular/material/input';
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              environment.clientId
+              environment.googleClientId,
+              {
+                scope: 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
+              }
             )
-          }
+          },
         ]
       } as SocialAuthServiceConfig,
     }],

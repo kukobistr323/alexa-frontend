@@ -4,8 +4,13 @@
 
 export const environment = {
   production: false,
-  clientId: '776512126207-583j3g98muoikteouk4olkijp59tijks.apps.googleusercontent.com',
-  url: 'http://localhost:8080'
+  googleClientId: '776512126207-583j3g98muoikteouk4olkijp59tijks.apps.googleusercontent.com',
+  zoomClientId: '5PuzUovSAC1whiw_NuUw',
+  zoomClientSecret: 'tuG3o76ZLlVdEhVl9SeFRXwgcdBqNpRr',
+  frontendUrl: 'https://localhost:4200',
+  backendUrl: 'http://localhost:8080',
+  zoomToken: 'zoomToken',
+  googleToken: 'googleToken'
 };
 
 /*

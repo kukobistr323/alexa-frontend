@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {SocialAuthService, GoogleLoginProvider, SocialUser} from 'angularx-social-login';
+import {GoogleLoginProvider, SocialAuthService, SocialUser} from 'angularx-social-login';
 import {Router} from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-google',
@@ -33,7 +34,7 @@ export class GoogleComponent implements OnInit {
 
   googleSignIn(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
-      .then((user: SocialUser) => localStorage.setItem('googleToken', user.response.access_token))
+      .then((user: SocialUser) => localStorage.setItem(environment.googleToken, user.response.access_token))
       .then(() => this.router.navigate(['/dashboard']));
   }
 
