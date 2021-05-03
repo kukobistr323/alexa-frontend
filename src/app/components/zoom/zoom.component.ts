@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {environment} from '../../../environments/environment';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Zoom} from '../../model/zoom';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-zoom',
@@ -12,7 +13,7 @@ export class ZoomComponent implements OnInit {
 
   zoomConnected: Zoom | undefined;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router) {
   }
 
   isAuthorized() {
@@ -23,8 +24,16 @@ export class ZoomComponent implements OnInit {
     window.location.href = `https://zoom.us/oauth/authorize?response_type=code&client_id=${environment.zoomClientId}&redirect_uri=${environment.frontendUrl}/authorize`;
   }
 
+  logOutFromZoom() {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem(environment.googleToken)}`
+    });
+    this.httpClient.delete(`${environment.backendUrl}/zoom`, {headers})
+      .subscribe(() => window.location.reload());
+  }
+
   getZoomEmail() {
-    // https://api.zoom.us/v2/users/me
+    return this.zoomConnected?.email;
   }
 
   ngOnInit(): void {
@@ -32,7 +41,13 @@ export class ZoomComponent implements OnInit {
       Authorization: `Bearer ${localStorage.getItem(environment.googleToken)}`
     });
     this.httpClient.get<Zoom>(`${environment.backendUrl}/zoom/connected`, {headers})
-      .subscribe(response => this.zoomConnected = response);
+      .subscribe(response => this.zoomConnected = response,
+        error => this.handleUnauthorized(error));
   }
 
+  handleUnauthorized(error: HttpErrorResponse) {
+    if (error.status === 401) {
+      this.router.navigate(['/login']);
+    }
+  }
 }

@@ -1,8 +1,10 @@
 <div class="container" fxLayout="column" fxLayoutAlign="space-evenly center">
+  <h2>Zoom</h2>
   <div class="body" *ngIf="isAuthorized(); else unauthorized">
+    <p class="text">Signed in as {{getZoomEmail()}}</p>
+    <button mat-raised-button color="primary" (click)="logOutFromZoom()">Log out</button>
   </div>
   <ng-template #unauthorized>
-    <h2>Zoom</h2>
     <p class="text">Press the button if you want to connect zoom account</p>
     <div class="button">
       <button mat-raised-button color="primary" (click)="signInZoom()">Sign in Zoom</button>

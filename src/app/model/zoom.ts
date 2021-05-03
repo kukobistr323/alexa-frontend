@@ -1,4 +1,4 @@
 export interface Zoom {
-  accessToken: string;
   isZoomConnected: boolean;
+  email: string;
 }
