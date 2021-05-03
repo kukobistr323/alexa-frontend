@@ -18,6 +18,9 @@ import {MatInputModule} from '@angular/material/input';
 import {ZoomComponent} from './components/zoom/zoom.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthorizeComponent} from './components/authorize/authorize.component';
+import {AccountComponent} from './components/account/account.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import {AuthorizeComponent} from './components/authorize/authorize.component';
     GoogleComponent,
     DashboardComponent,
     ZoomComponent,
-    AuthorizeComponent
+    AuthorizeComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -36,8 +40,10 @@ import {AuthorizeComponent} from './components/authorize/authorize.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
+    MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FlexLayoutModule
   ],
   providers: [
     {
