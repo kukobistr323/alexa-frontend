@@ -1,0 +1,23 @@
+.card-item {
+  box-shadow: 0 2px 10px rgb(32 75 146 / 10%);
+  padding: 10px 30px;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 40px;
+  width: 500px;
+}
+
+.action-menu {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  cursor: pointer;
+
+  span:not(:last-child) {
+    margin-right: 5px;
+  }
+}
+
+.grid-container {
+  width: 450px;
+}

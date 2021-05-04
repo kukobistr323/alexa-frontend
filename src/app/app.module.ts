@@ -21,6 +21,7 @@ import {AuthorizeComponent} from './components/authorize/authorize.component';
 import {AccountComponent} from './components/account/account.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatGridListModule
   ],
   providers: [
     {
