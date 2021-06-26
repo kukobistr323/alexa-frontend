@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {GoogleComponent} from './components/google/google.component';
 
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -22,6 +22,7 @@ import {AccountComponent} from './components/account/account.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { AccountCreateComponent } from './components/account-create/account-create.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     DashboardComponent,
     ZoomComponent,
     AuthorizeComponent,
-    AccountComponent
+    AccountComponent,
+    AccountCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatFormFieldModule,
     MatInputModule,
     FlexLayoutModule,
-    MatGridListModule
+    MatGridListModule,
+    FormsModule
   ],
   providers: [
     {

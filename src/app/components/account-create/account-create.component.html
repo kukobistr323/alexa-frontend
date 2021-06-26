@@ -1,0 +1,37 @@
+<div class="container-second-create">
+  <h2>Create Account</h2>
+  <p class="secondary-text">
+    There you can add a new account to the system<br>and then use it for a meeting creation
+  </p>
+  <div class="input-group" fxLayout="column">
+    <mat-form-field class="input">
+      <mat-label>First Name</mat-label>
+      <input matInput [formControl]="nameFormControl" [(ngModel)]="firstName">
+      <mat-error *ngIf="!emailFormControl.hasError('required')">
+        Please enter last name
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>Last Name</mat-label>
+      <input matInput [formControl]="nameFormControl" [(ngModel)]="lastName">
+      <mat-error *ngIf="!emailFormControl.hasError('required')">
+        Please enter first name
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl" [(ngModel)]="email">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="button">
+    <button mat-raised-button color="primary"
+            (click)="createAccount()">
+      Create
+    </button>
+  </div>
+</div>
