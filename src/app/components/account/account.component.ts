@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Account} from '../../model/account';
 
 @Component({
   selector: 'app-account',
@@ -10,6 +9,10 @@ export class AccountComponent implements OnInit {
   @Input() account: any;
 
   constructor() {
+  }
+
+  deleteAccount(id: number) {
+
   }
 
   ngOnInit(): void {

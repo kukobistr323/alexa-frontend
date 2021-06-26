@@ -1,22 +1,28 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Account} from '../model/account';
-import {tap} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
+import {Router} from '@angular/router';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AccountService {
-  public accounts: Account[] = [];
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router) {
   }
 
   getAccounts() {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('googleToken')}`
+    const headers = this.createHeaders();
+    return this.httpClient.get<Account[]>(`${environment.backendUrl}/accounts`, {headers});
+  }
+
+  createAccount(account: Account) {
+    const headers = this.createHeaders();
+    return this.httpClient.post<Account>(`${environment.backendUrl}/accounts`, account, {headers});
+  }
+
+  private createHeaders() {
+    return new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem(environment.googleToken)}`
     });
-    return this.httpClient.get<Account[]>(`${environment.backendUrl}/accounts`, {headers})
-      .pipe(tap(accounts => this.accounts = accounts));
   }
 }

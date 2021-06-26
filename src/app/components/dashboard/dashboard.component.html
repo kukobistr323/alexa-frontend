@@ -10,43 +10,11 @@
       <div fxLayout fxFill>
         <div fxFlex="60">
           <div fxLayout="column" fxLayoutAlign="start center">
-            <div class="container-second-create">
-              <h2>Create Account</h2>
-              <p class="secondaty-text">
-                There you can add a new account to the system<br>and then use it for a meeting creation
-              </p>
-              <div class="input-group" fxLayout="column">
-                <mat-form-field class="input">
-                  <mat-label>First Name</mat-label>
-                  <input matInput [formControl]="nameFormControl" #firstNameInput>
-                  <mat-error *ngIf="!emailFormControl.hasError('required')"></mat-error>
-                </mat-form-field>
-
-                <mat-form-field class="input">
-                  <mat-label>Last Name</mat-label>
-                  <input matInput [formControl]="nameFormControl" #lastNameInput>
-                  <mat-error *ngIf="!emailFormControl.hasError('required')"></mat-error>
-                </mat-form-field>
-
-                <mat-form-field class="input">
-                  <mat-label>Email</mat-label>
-                  <input type="email" matInput [formControl]="emailFormControl" #emailInput>
-                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                    Please enter a valid email address
-                  </mat-error>
-                </mat-form-field>
-              </div>
-              <div class="button">
-                <button mat-raised-button color="primary"
-                        (click)="createAccount(firstNameInput.value, lastNameInput.value, emailInput.value)">
-                  Create
-                </button>
-              </div>
-            </div>
+              <app-account-create (addAccount)="addAccount($event)"></app-account-create>
           </div>
         </div>
         <div class="card-wrapper" fxFlex="40">
-          <app-account [account]="item" *ngFor="let item of data"></app-account>
+          <app-account [account]="item" *ngFor="let item of accounts"></app-account>
         </div>
       </div>
     </div>
