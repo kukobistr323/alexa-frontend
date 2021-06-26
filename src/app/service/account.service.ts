@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Account} from '../model/account';
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
@@ -8,6 +8,11 @@ import {Router} from '@angular/router';
 export class AccountService {
 
   constructor(private httpClient: HttpClient, private router: Router) {
+  }
+
+  getAccounts() {
+    const headers = this.createHeaders();
+    return this.httpClient.get<Account[]>(`${environment.backendUrl}/accounts`, {headers});
   }
 
   createAccount(account: Account) {

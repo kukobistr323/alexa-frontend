@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
-import {Router} from '@angular/router';
+import {AccountService} from '../../service/account.service';
+import {Account} from '../../model/account';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,14 +10,11 @@ import {Router} from '@angular/router';
 export class DashboardComponent implements OnInit {
   accounts: Account[] | undefined;
 
-  constructor(private httpClient: HttpClient, private router: Router) {
+  constructor(private accountService: AccountService) {
   }
 
   ngOnInit(): void {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem(environment.googleToken)}`
-    });
-    this.httpClient.get<Account[]>(`${environment.backendUrl}/accounts`, {headers})
+    this.accountService.getAccounts()
       .subscribe(response => this.accounts = response);
   }
 
