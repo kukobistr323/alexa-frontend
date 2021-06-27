@@ -1,7 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
+import {HttpErrorResponse} from '@angular/common/http';
 import {Account} from '../../model/account';
 import {AccountService} from '../../service/account.service';
 import {Router} from '@angular/router';

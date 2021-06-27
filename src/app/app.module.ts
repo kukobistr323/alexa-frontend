@@ -22,7 +22,7 @@ import {AccountComponent} from './components/account/account.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { AccountCreateComponent } from './components/account-create/account-create.component';
+import {AccountCreateComponent} from './components/account-create/account-create.component';
 
 @NgModule({
   declarations: [
