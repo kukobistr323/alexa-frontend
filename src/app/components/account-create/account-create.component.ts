@@ -42,7 +42,7 @@ export class AccountCreateComponent implements OnInit {
         email: this.email
       };
 
-      this.accountService.createAccount(account)
+      this.accountService.create(account)
         .subscribe(response => this.addAccount.emit(response),
           error => this.handleUnauthorized(error)
         );

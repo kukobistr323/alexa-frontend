@@ -14,11 +14,15 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.accountService.getAccounts()
+    this.accountService.getAll()
       .subscribe(response => this.accounts = response);
   }
 
   addAccount(account: Account) {
     this.accounts?.unshift(account);
+  }
+
+  deleteAccount(account: Account) {
+    this.accounts = this.accounts?.filter(elem => elem !== account);
   }
 }

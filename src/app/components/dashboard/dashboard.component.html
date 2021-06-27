@@ -10,11 +10,13 @@
       <div fxLayout fxFill>
         <div fxFlex="60">
           <div fxLayout="column" fxLayoutAlign="start center">
-              <app-account-create (addAccount)="addAccount($event)"></app-account-create>
+            <app-account-create (addAccount)="addAccount($event)"></app-account-create>
           </div>
         </div>
         <div class="card-wrapper" fxFlex="40">
-          <app-account [account]="item" *ngFor="let item of accounts"></app-account>
+          <app-account [account]="item"
+                       (deletedAccount)="deleteAccount($event)"
+                       *ngFor="let item of accounts"></app-account>
         </div>
       </div>
     </div>
