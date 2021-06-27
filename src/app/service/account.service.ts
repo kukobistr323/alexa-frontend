@@ -3,26 +3,28 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Account} from '../model/account';
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
+import {HttpService} from './http.service';
 
 @Injectable({providedIn: 'root'})
-export class AccountService {
+export class AccountService extends HttpService {
 
-  constructor(private httpClient: HttpClient, private router: Router) {
+  constructor(private httpClient: HttpClient,
+              router: Router) {
+    super(router);
   }
 
-  getAccounts() {
-    const headers = this.createHeaders();
+  getAll() {
+    const headers = this.createHeaderForBackend();
     return this.httpClient.get<Account[]>(`${environment.backendUrl}/accounts`, {headers});
   }
 
-  createAccount(account: Account) {
-    const headers = this.createHeaders();
+  create(account: Account) {
+    const headers = this.createHeaderForBackend();
     return this.httpClient.post<Account>(`${environment.backendUrl}/accounts`, account, {headers});
   }
 
-  private createHeaders() {
-    return new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem(environment.googleToken)}`
-    });
+  delete(id: number | undefined) {
+    const headers = this.createHeaderForBackend();
+    return this.httpClient.delete(`${environment.backendUrl}/accounts/${id}`, {headers});
   }
 }
